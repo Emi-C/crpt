@@ -8,7 +8,7 @@ const Navigator = () => (
     <ul>
       {routes.map((route) => (
         <li key={route.id}>
-          <NavLink to={route.path} activeClassName="active">
+          <NavLink to={route.path} exact activeClassName="active">
             {route.navText}
           </NavLink>
         </li>

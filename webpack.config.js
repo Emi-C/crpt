@@ -21,10 +21,6 @@ module.exports = {
         test: /\.css$/,
         use: ['style-loader', 'css-loader'],
       },
-      {
-        test: /\.scss$/,
-        use: ['style-loader', 'css-loader', 'sass-loader'],
-      },
     ],
   },
   resolve: {
@@ -38,6 +34,7 @@ module.exports = {
     contentBase: path.join(__dirname, 'public'),
     port: 8080,
     publicPath: 'http://localhost:8080/dist',
+    historyApiFallback: true,
     open: true,
   },
   plugins: [new webpack.HotModuleReplacementPlugin()], //HMR, on save reloads view

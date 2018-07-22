@@ -15,12 +15,13 @@ const Home = (props) => {
         <option value="10">10</option>
         <option value="50">50</option>
         <option value="100">100</option>
-        <option value="all">all</option>
+        {/*<option value="all">all</option>*/}
       </select>
       <span> results</span>
-      <div className="tbl-header">
+
+      <div className="tbl-container">
         <table cellPadding="0" cellSpacing="0" border="0">
-          <thead>
+          <thead className="tbl-header">
             <tr>
               <th>RANK</th>
               <th>NAME</th>
@@ -30,11 +31,9 @@ const Home = (props) => {
               <th>VOLUME (24h)</th>
             </tr>
           </thead>
-        </table>
-      </div>
-      <div className="tbl-content">
-        <table cellPadding="0" cellSpacing="0" border="0">
-          <tbody>{props.data.map((el, i) => <TableRow key={i} data={el} />)}</tbody>
+          <tbody className="tbl-content">
+            {props.data.map((el, i) => <TableRow key={i} data={el} />)}
+          </tbody>
         </table>
       </div>
     </div>

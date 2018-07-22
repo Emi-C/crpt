@@ -83,29 +83,87 @@ nav ul li a.active {
 
 
 /*table*/
+
+.tbl-container{
+    margin:20px;
+    border: 1px solid rgba(255,255,255,0.3);
+    overflow-x: auto;
+}
 table {
     width:100%;
-    text-align: left
+    text-align: left;
 }
 .tbl-header {
     margin-top:30px;
     background-color: rgba(255,255,255,0.3);
 }
 .tbl-content {
-    height:300px;
-    max-height:60vh;
+    height:360px;
     overflow:auto;
     margin-top: 0px;
-    padding:10px 0;
-    border: 1px solid rgba(255,255,255,0.3);
+    
 }
 th {
     padding: 20px 10px;
-    width:calc(100% / 6);
     font-weight: bold;
 }
-
 td {
     padding: 10px;
-    width:calc(100% / 6);
+}
+th:nth-child(1),td:nth-child(1){
+    width:7%;
+}
+th:nth-child(2),td:nth-child(2){
+    width:17%;
+}
+th:nth-child(3),td:nth-child(3){
+    width:13%;
+}
+th:nth-child(4),td:nth-child(4){
+    width:13%;
+}
+th:nth-child(5),th:nth-child(6),td:nth-child(5),td:nth-child(6){
+    width:25%;
+}
+
+
+
+/*chart*/
+.Liquidity{
+    text-align: center
+}
+.chartContainer{
+    display: inline-block;
+    height:70vh;
+    width: 50vw;
+    position: relative;
+    cursor: -webkit-grab;
+}
+.chartContainer:active{
+    cursor: -webkit-grabbing;
+}
+@media (max-width:991px)  {
+    .chartContainer{
+        width: 80vw;
+    }
+}
+@media (max-width:767px)  {
+    .chartContainer{
+        width: 100vw;
+    }
+}
+
+.legend{
+    font-size:.8rem;
+    position: absolute;
+}
+.legend.xaxis{
+    bottom:-10px;
+    left:50%;
+    transform: translateX(-50%)
+}
+.legend.yaxis{
+    top:50%;
+    left:-20px;
+    transform: rotate(-90deg)
 }
