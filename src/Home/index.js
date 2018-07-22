@@ -5,13 +5,12 @@ import Home from './template';
 
 const homeActions = actions.HOME;
 const mapDispatchToProps = (dispatch) => ({
-  bootstrap: () => dispatch(homeActions.BOOTSTRAP.create()),
-  increment: () => dispatch(homeActions.INCREMENT.create()),
-  decrement: () => dispatch(homeActions.DECREMENT.create()),
+  changeCounter: (counter) => dispatch(homeActions.CHANGE_COUNTER.create({ counter })),
 });
 
 const mapStateToProps = (state) => ({
-  counter: state.home.counter,
+  counter: state.counter,
+  data: state.data,
 });
 
 export default connect(

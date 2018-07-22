@@ -28,17 +28,17 @@ const createScopedActions = (scope, actions) =>
 
 const reducer = (a, b) => (scope, actions) => b(a(scope, actions));
 const pipe = (...func) => func.reduce(reducer);
-const getActions = pipe(
+const createActions = pipe(
   createScopedActions,
   createActionDescriptors
 );
 
 /*
-creates action cretors like
+creates action creators like
 KEY:{type:'KEY', payload: payload},
 KEY_SUCCESS:{type:'KEY_SUCCESS', payload: payload},
 KEY_ERROR:{type:'KEY_ERROR', payload: payload}
 */
-export default getActions;
+export default createActions;
 
 export { createScopedActions };

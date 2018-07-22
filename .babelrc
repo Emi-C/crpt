@@ -9,8 +9,11 @@
       ["module-resolver", {
         "root": ["./src"],
         "alias":{
+          "App":"./src/App",
           "Home":"./src/Home",
+          "Liquidity":"./src/Liquidity",
           "reduxUtils":"./src/reduxUtils",
+          "router":"./src/router",
           "theme":"./src/theme"
         }
       }]
