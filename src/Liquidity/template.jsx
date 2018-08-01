@@ -30,11 +30,16 @@ const Liquidity = (props) => {
       <div className="chartContainer">
         <span className="legend yaxis">Volume (24h) in Billion $</span>
         <span className="legend xaxis">Market Cap in Billion $</span>
-        <VictoryChart theme={VictoryTheme.material} containerComponent={<VictoryZoomContainer />}>
+        <VictoryChart
+          theme={VictoryTheme.material}
+          containerComponent={<VictoryZoomContainer />}
+          scale={{ x: 'log', y: 'log' }}
+        >
           <VictoryScatter
             maxBubbleSize={10}
             minBubbleSize={1}
             bubbleProperty="z"
+            scale={{ x: 'log', y: 'log' }}
             labelComponent={
               <VictoryTooltip
                 flyoutStyle={{

@@ -12,9 +12,12 @@ export function* setCounterRequest(counter) {
 
 export function* getDataRequest(counter) {
   try {
+    yield put(actions.COMMON.START_LOADER.create());
     const data = yield call(api.getData, counter);
     yield put(actions.COMMON.GET_DATA_REQUEST_SUCCESS.create(data.data));
   } catch (err) {
     yield put(actions.COMMON.GET_DATA_REQUEST_ERROR.create(err));
+  } finally {
+    yield put(actions.COMMON.STOP_LOADER.create());
   }
 }

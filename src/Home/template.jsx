@@ -2,23 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import TableRow from './TableRow';
 
-const Home = (props) => {
-  const changeCounter = () => {
-    const counter = document.getElementById('counter').value;
-    props.changeCounter(counter);
-  };
-  return (
-    <div className="Home">
-      <h1>ticker</h1>
-      <span>Get first </span>
-      <select id="counter" onChange={changeCounter} value={props.counter}>
-        <option value="10">10</option>
-        <option value="50">50</option>
-        <option value="100">100</option>
-        {/*<option value="all">all</option>*/}
-      </select>
-      <span> results</span>
-
+const Home = (props) => (
+  <div className="Home">
+    <h1>ticker</h1>
+    {props.isLoading ? (
+      <p className="loading">loading....</p>
+    ) : props.error ? (
+      <p className="loading">ERROR</p>
+    ) : (
       <div className="tbl-container">
         <table cellPadding="0" cellSpacing="0" border="0">
           <thead className="tbl-header">
@@ -36,14 +27,14 @@ const Home = (props) => {
           </tbody>
         </table>
       </div>
-    </div>
-  );
-};
+    )}
+  </div>
+);
 
 Home.propTypes = {
-  counter: PropTypes.string.isRequired,
   data: PropTypes.array.isRequired,
-  changeCounter: PropTypes.func.isRequired,
+  isLoading: PropTypes.bool.isRequired,
+  error: PropTypes.bool.isRequired,
 };
 
 export default Home;
