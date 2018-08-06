@@ -8,13 +8,13 @@ function* changeCounter({ payload }) {
     const newCounter = yield select((state) => state.counter);
     yield call(getDataRequest, newCounter);
     //counter has to be the arg, but this is correct flow, set -> select-> use
-    yield put(actions.HOME.CHANGE_COUNTER_SUCCESS.create());
+    yield put(actions.APP.CHANGE_COUNTER_SUCCESS.create());
   } catch (err) {
-    yield put(actions.HOME.CHANGE_COUNTER_ERROR.create());
+    yield put(actions.APP.CHANGE_COUNTER_ERROR.create());
     throw err;
   }
 }
 
 export default function* HomeSaga() {
-  yield takeLatest(actions.HOME.CHANGE_COUNTER.create().type, changeCounter);
+  yield takeLatest(actions.APP.CHANGE_COUNTER.create().type, changeCounter);
 }
